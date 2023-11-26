@@ -46,6 +46,6 @@ class FileUploader:
         self.body += b'\r\n\r\n'
         self.body += fp.read()
         self.body += b'\r\n--' + self.boundary + b'--\r\n'
-    def upload(self, url: str, **kwargs):
+    def upload(self, url: str, *, files = None, data = None, json = None, **kwargs):
         self.sess.headers['Content-Type'] = 'multipart/form-data; boundary=' + self.boundary.decode()
         return self.sess.post(url, data=self.body, **kwargs)
