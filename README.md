@@ -6,6 +6,7 @@ I developed this because I ~~encountered repeated exceptions while attempting to
 # Dependencies
 Only [tls_client](https://pypi.org/project/tls-client/) :)
 # Examples
+Here is the simplest use
 ```python
 import fileuploader, tls_client
 
@@ -53,7 +54,7 @@ buff = BytesIO(bytes(open("C:/path/to/original_image.jpg", 'rb'))
 fileuploader.File(buff, content_type='image/jpg', name='original_image.jpg')
 ```
 ------
-#### extract
+#### extract()
 > Get the needed file data to upload
 
 Returns a tuple: `(file_name, file, content_type)`
@@ -98,5 +99,11 @@ uploader.addFile("file_to_upload", file)
 ```python
 uploader.upload("https://target.server.com/target/path")
 ```
+
+> [!CAUTION]
+> Some arguments like `files`, `data`, and `json` are blocked due to conflicts but not all. Please keep the request body empty unless you know how to work with HTTP. 	<sup>Then you are better than me =)<sup>
+
+# License
+See [License](./LICENSE)
 # The last word
 I’m *still learning the ropes*, and my code definitely has room for improvement. I sincerely value any contributions or feedback. If you have any questions, feel free to open an issue.
