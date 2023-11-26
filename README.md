@@ -1,10 +1,10 @@
-# tls_client File Uploader
-An alternative method to *upload files* for tls_client through [**POST**](https://en.wikipedia.org/wiki/POST_(HTTP)) request in [**python**](https://www.python.org/)
+# Python-TLS-Client File Uploader
+An alternative method to *upload files* for [Python-TLS-Client](https://pypi.org/project/tls-client/) through [**POST**](https://en.wikipedia.org/wiki/POST_(HTTP)) request in [**python**](https://www.python.org/)
 # Introduction
 I developed this because I ~~encountered repeated exceptions while attempting to upload files using tls_client~~ want to explore something fresh.
 > I am a newbie.
 # Dependencies
-Only [tls_client](https://pypi.org/project/tls-client/) :)
+Only [Python-TLS-Client](https://pypi.org/project/tls-client/) :)
 # Examples
 Here is the simplest use
 ```python
@@ -66,7 +66,7 @@ Returns a tuple: `(file_name, file, content_type)`
 #### \_\_init__()
 | Parameter | Value | Explanation |
 | -- | -- | -- |
-| sess | **tls_client.Session** | tls_client session to be used |
+| sess | **tls_client.Session** | Python-TLS-Client session to be used |
 
 **Example**
 ```python
@@ -101,7 +101,7 @@ uploader.upload("https://target.server.com/target/path")
 ```
 
 > [!CAUTION]
-> Some arguments like `files`, `data`, and `json` are blocked due to conflicts but not all. Please keep the request body empty unless you know how to work with HTTP. 	<sup>Then you are better than me =)<sup>
+> Some arguments like `files`, `data`, and `json` are blocked due to conflicts but not all. Please keep the request body empty unless you know how to work with HTTP
 
 # License
 See [License](./LICENSE)
