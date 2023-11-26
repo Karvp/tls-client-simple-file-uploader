@@ -87,6 +87,7 @@ uploader = fileuploader.FileUploader(session)
 file = fileuploader.File("C:/path/to/original_image.jpg", content_type='image/jpg')
 uploader.addFile("file_to_upload", file)
 ```
+------
 #### upload()
 > Uploads file to url
 
