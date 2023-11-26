@@ -1,8 +1,11 @@
 # Python-TLS-Client File Uploader
-An alternative method to *upload files* for [Python-TLS-Client](https://pypi.org/project/tls-client/) through [**POST**](https://en.wikipedia.org/wiki/POST_(HTTP)) request in [**python**](https://www.python.org/)
+An alternative method to *upload files* for [Python-TLS-Client](https://pypi.org/project/tls-client/) through [**POST**](https://en.wikipedia.org/wiki/POST_(HTTP)) request in **python**
 # Introduction
 I developed this because I ~~encountered repeated exceptions while attempting to upload files using tls_client~~ want to explore something fresh.
-> I am a newbie.
+> Please keep in mind that I am a newbie :)
+
+> [!NOTE]
+> All of the syntax is based on *Python-TLS-Client*. The only difference is that you will now only be **sending files**.
 # Dependencies
 Only [Python-TLS-Client](https://pypi.org/project/tls-client/) :)
 # Examples
@@ -10,12 +13,15 @@ Here is the simplest use
 ```python
 import fileuploader, tls_client
 
-UPLOAD_FILE_PATH = "path/to/your/file"
-UPLOAD_FILE_CONTENT_TYPE = "content/type"
-UPLOAD_FILE_ORIGINAL_NAME = "file"
+FILE_PATH = "path/to/your/file"
+FILE_CONTENT_TYPE = "content/type"
+FILE_ORIGINAL_NAME = "file"
 UPLOADED_FILE_NAME = "file"
 
 UPLOAD_TARGET = "https://upload.server.com/"
+
+# Create a new File object
+file = fileuploader.File(FILE_PATH, content_type=FILE_CONTENT_TYPE, name=FILE_ORIGINAL_NAME)
 
 # Create a new tls_client session
 sess = tls_client.Session(client_identifier='chrome112')
@@ -23,10 +29,10 @@ sess = tls_client.Session(client_identifier='chrome112')
 # Create the FileUploader object
 uploader = fileuploader.FileUploader(sess)
 
-# Add a file
-uploader.addFile(UPLOADED_FILE_NAME, fileuploader.File(UPLOAD_FILE_PATH, content_type=UPLOAD_FILE_CONTENT_TYPE, name=UPLOAD_FILE_NAME))
+# Add the file
+uploader.addFile(UPLOADED_FILE_NAME, file)
 
-# Do just like normal tls_client.post method
+# Do just like normal tls_client.Session.post method
 res = uploader.upload(UPLOAD_TARGET, headers={'some': 'headers'})
 
 # Print the result
@@ -107,4 +113,4 @@ uploader.upload("https://target.server.com/target/path")
 # License
 See [License](./LICENSE)
 # The last word
-I’m *still learning the ropes*, and my code definitely has room for improvement. I sincerely value any contributions or feedback. If you have any questions, feel free to open an issue.
+I’m *still learning the ropes*, and my code definitely has room for improvement. I sincerely value any contributions or feedback. If you have any questions, feel free to open an issue. And... sorry for my poor English 😅
