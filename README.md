@@ -30,7 +30,7 @@ uploader.addFile(UPLOADED_FILE_NAME, fileuploader.File(UPLOAD_FILE_PATH, content
 res = uploader.upload(UPLOAD_TARGET, headers={'some': 'headers'})
 
 # Print the result
-dump(res.json())
+print(res.content)
 ```
 # Documentation
 ## File
