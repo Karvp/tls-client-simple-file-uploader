@@ -33,7 +33,7 @@ uploader = fileuploader.FileUploader(sess)
 # Add the file
 uploader.addFile(UPLOADED_FILE_NAME, file)
 
-# Do just like normal tls_client.Session.post method
+# Do just like normal tls_client.Session.post method except now you are not modifying the request's body
 res = uploader.upload(UPLOAD_TARGET, headers={'some': 'headers'})
 
 # Print the result
@@ -109,7 +109,7 @@ uploader.upload("https://target.server.com/target/path")
 ```
 
 > [!CAUTION]
-> Some arguments like `files`, `data`, and `json` are blocked due to conflicts but not all. Please keep the request body empty unless you know how to work with HTTP
+> Some arguments like `files`, `data`, and `json` are blocked due to conflicts but maybe not all. Please keep the request body empty unless you know how to work with it
 
 # License
 See [License](./LICENSE)
