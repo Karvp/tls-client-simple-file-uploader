@@ -2,7 +2,8 @@
 An alternative method to *upload files* for [Python-TLS-Client](https://pypi.org/project/tls-client/) through [**POST**](https://en.wikipedia.org/wiki/POST_(HTTP)) request in **python**
 # Introduction
 I developed this because I ~~encountered repeated exceptions while attempting to upload files using tls_client~~ want to explore something fresh.
-> Please keep in mind that I am a newbie :)
+> [!WARNING]
+> This program needs to load all data into a variable before sending it to the server, which can consume lots of the computer's memory.
 
 > [!NOTE]
 > All of the syntax is based on *Python-TLS-Client*. The only difference is that you will now only be **sending files**.
