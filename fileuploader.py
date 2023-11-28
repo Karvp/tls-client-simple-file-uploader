@@ -25,8 +25,11 @@ class File:
 
 class FileUploader:
     def __init__(self, sess: tls_client.Session):
+        self.new_session(sess)
+    def new_session(self, sess: tls_client.Session):
         self.sess = sess
-        
+        self.reset()
+    def reset(self):
         self.__new_boundary()
         self.body = b''
     def __new_boundary(self):
@@ -47,5 +50,6 @@ class FileUploader:
         self.body += fp.read()
         self.body += b'\r\n--' + self.boundary + b'--\r\n'
     def upload(self, url: str, *, files = None, data = None, json = None, **kwargs):
-        self.sess.headers['Content-Type'] = 'multipart/form-data; boundary=' + self.boundary.decode()
-        return self.sess.post(url, data=self.body, **kwargs)
+        headers = kwargs.pop('headers', dict())
+        headers['Content-Type'] = 'multipart/form-data; boundary=' + self.boundary.decode()
+        return self.sess.post(url, data=self.body, headers=headers, **kwargs)
